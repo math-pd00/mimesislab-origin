@@ -1,0 +1,374 @@
+[gd_scene load_steps=62 format=2]
+
+[ext_resource path="res://Game/Scripts/Scenes/Dialogo/Dialogo05.gd" type="Script" id=1]
+[ext_resource path="res://Game/Assets/Sprites/Spirit01/Idle_Flicker_(32 x 32).png" type="Texture" id=2]
+[ext_resource path="res://Game/Images/Dialogo/Fondo.png" type="Texture" id=3]
+[ext_resource path="res://Game/Assets/Sprites/Planta_02/PersonajePlanta02-2.png" type="Texture" id=4]
+[ext_resource path="res://Game/Assets/Sprites/Planta_01/PersonajePlanta01-1.png" type="Texture" id=5]
+[ext_resource path="res://Game/Assets/Buttons/forward.png" type="Texture" id=6]
+[ext_resource path="res://Game/Sounds/BGM/Dialogo/VGMA Challenge - July 25th.wav" type="AudioStream" id=7]
+[ext_resource path="res://Game/Assets/Sprites/Planta_01/PersonajePlanta01.png" type="Texture" id=8]
+[ext_resource path="res://Game/Assets/Sprites/Planta_02/PersonajePlanta02.png" type="Texture" id=9]
+[ext_resource path="res://Game/Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Game/Assets/Sprites/Player01/J_Quieto.png" type="Texture" id=11]
+[ext_resource path="res://Game/Assets/Sprites/Planta_03/PersonajePlanta03.png" type="Texture" id=12]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 3.png" type="Texture" id=13]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 2.png" type="Texture" id=14]
+[ext_resource path="res://Game/Assets/Sprites/Planta_03/PersonajePlanta03-3.png" type="Texture" id=15]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 4.png" type="Texture" id=16]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 5.png" type="Texture" id=17]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 1.png" type="Texture" id=18]
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 2 )
+region = Rect2( 480, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 2 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 2 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 2 )
+region = Rect2( 288, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 2 )
+region = Rect2( 320, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 2 )
+region = Rect2( 352, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 2 )
+region = Rect2( 416, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 2 )
+region = Rect2( 480, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=45]
+atlas = ExtResource( 2 )
+region = Rect2( 512, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=46]
+atlas = ExtResource( 2 )
+region = Rect2( 544, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=47]
+atlas = ExtResource( 2 )
+region = Rect2( 576, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=48]
+atlas = ExtResource( 2 )
+region = Rect2( 608, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=49]
+atlas = ExtResource( 2 )
+region = Rect2( 640, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=58]
+animations = [ {
+"frames": [ SubResource( 21 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+} ]
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="SpriteFrames" id=59]
+animations = [ {
+"frames": [ SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 4.0
+} ]
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="SpriteFrames" id=60]
+animations = [ {
+"frames": [ SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
+} ]
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="SpriteFrames" id=61]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 19 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "Miss",
+"speed": 7.0
+} ]
+
+[sub_resource type="AtlasTexture" id=62]
+atlas = ExtResource( 11 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="SpriteFrames" id=53]
+animations = [ {
+"frames": [ SubResource( 62 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+} ]
+
+[sub_resource type="DynamicFont" id=54]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=55]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=56]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 337, 135 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 357, 176 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "fin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 167 ), Vector2( 340, 180 ) ]
+}
+
+[node name="Dialogo05" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Escena" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -198, 27 )
+script = ExtResource( 1 )
+
+[node name="Fondo" type="ColorRect" parent="Escena"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Player" type="TextureRect" parent="Escena"]
+pause_mode = 2
+margin_left = -11.0
+margin_top = 80.0
+margin_right = 117.0
+margin_bottom = 160.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Escena/Player"]
+position = Vector2( 371, -52 )
+scale = Vector2( 2.625, 2.15625 )
+frames = SubResource( 58 )
+animation = "Idle"
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Escena/Player"]
+position = Vector2( 241, -43 )
+scale = Vector2( 1.75, 1.57813 )
+frames = SubResource( 59 )
+animation = "Idle"
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Escena/Player"]
+position = Vector2( 337, -6 )
+scale = Vector2( 2, 1.84375 )
+frames = SubResource( 60 )
+animation = "Idle"
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Escena/Player"]
+position = Vector2( 292, 7 )
+scale = Vector2( 1.58437, 1.57031 )
+frames = SubResource( 61 )
+animation = "Idle"
+flip_h = true
+
+[node name="Player2" type="TextureRect" parent="Escena"]
+pause_mode = 2
+margin_left = -11.0
+margin_top = 103.0
+margin_right = 117.0
+margin_bottom = 183.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Escena/Player2"]
+position = Vector2( 73.5, -18 )
+scale = Vector2( 1.525, 1.34375 )
+frames = SubResource( 53 )
+animation = "Idle"
+
+[node name="FondoTexto" type="TextureRect" parent="Escena"]
+pause_mode = 2
+margin_left = 31.0
+margin_top = 116.0
+margin_right = 362.0
+margin_bottom = 194.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="Nombre" type="Label" parent="Escena"]
+margin_left = 48.0
+margin_top = 116.0
+margin_right = 78.0
+margin_bottom = 126.0
+custom_fonts/font = SubResource( 54 )
+text = "Jorgito"
+
+[node name="Nombre2" type="Label" parent="Escena"]
+margin_left = 277.0
+margin_top = 116.0
+margin_right = 354.0
+margin_bottom = 126.0
+custom_fonts/font = SubResource( 54 )
+text = "Seres Fantasticos"
+
+[node name="Texto" type="RichTextLabel" parent="Escena"]
+pause_mode = 2
+margin_left = 40.0
+margin_top = 127.0
+margin_right = 350.0
+margin_bottom = 188.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 55 )
+bbcode_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="Efecto" type="Tween" parent="Escena"]
+pause_mode = 2
+
+[node name="Siguiente" type="TouchScreenButton" parent="Escena"]
+modulate = Color( 0.239216, 0.0627451, 0.384314, 1 )
+position = Vector2( 357, 176 )
+rotation = 1.56667
+normal = ExtResource( 6 )
+action = "seguir"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Escena/Siguiente"]
+anims/RESET = SubResource( 56 )
+anims/fin = SubResource( 57 )
+
+[node name="BGM" type="Node" parent="Escena"]
+
+[node name="1" type="AudioStreamPlayer" parent="Escena/BGM"]
+stream = ExtResource( 7 )
+autoplay = true
+
+[connection signal="tween_completed" from="Escena/Efecto" to="Escena" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Escena/Siguiente" to="Escena" method="_on_Siguiente_pressed"]

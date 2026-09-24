@@ -1,0 +1,19 @@
+# Godot 4
+.godot/
+
+# Godot 3
+.import/
+
+# Exports and local export settings
+export.cfg
+export_presets.cfg
+builds/
+
+# Mono / C#
+.mono/
+data_*/
+mono_crash.*.json
+
+# OS
+.DS_Store
+Thumbs.db

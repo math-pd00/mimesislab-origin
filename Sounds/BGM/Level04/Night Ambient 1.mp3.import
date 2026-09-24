@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Night Ambient 1.mp3-e05242ae38a2cb22543697fa27260350.mp3str"
+
+[deps]
+
+source_file="res://Game/Sounds/BGM/Level04/Night Ambient 1.mp3"
+dest_files=[ "res://.import/Night Ambient 1.mp3-e05242ae38a2cb22543697fa27260350.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

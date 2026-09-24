@@ -1,0 +1,152 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Game/Assets/Sprites/Player01/J_Quieto.png" type="Texture" id=1]
+[ext_resource path="res://Game/Images/Dialogo/Fondo.png" type="Texture" id=2]
+[ext_resource path="res://Game/Assets/Buttons/forward.png" type="Texture" id=3]
+[ext_resource path="res://Game/Sounds/BGM/Dialogo/VGMA Challenge - July 25th.wav" type="AudioStream" id=4]
+[ext_resource path="res://Game/Scripts/Scenes/Dialogo/Dialogo01.gd" type="Script" id=5]
+[ext_resource path="res://Game/Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 12.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 337, 135 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 357, 176 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 167 ), Vector2( 340, 180 ) ]
+}
+
+[node name="Dialogo01" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Escena" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Fondo" type="ColorRect" parent="Escena"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Player" type="TextureRect" parent="Escena"]
+pause_mode = 2
+margin_left = -11.0
+margin_top = 103.0
+margin_right = 117.0
+margin_bottom = 183.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Escena/Player"]
+position = Vector2( 86.5, 7 )
+scale = Vector2( 1.525, 1.34375 )
+frames = SubResource( 6 )
+animation = "Idle"
+
+[node name="FondoTexto" type="TextureRect" parent="Escena"]
+pause_mode = 2
+margin_left = 55.0
+margin_top = 142.0
+margin_right = 344.0
+margin_bottom = 199.0
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="Nombre" type="Label" parent="Escena"]
+margin_left = 309.0
+margin_top = 140.0
+margin_right = 339.0
+margin_bottom = 150.0
+custom_fonts/font = SubResource( 5 )
+text = "Jorgito"
+
+[node name="Texto" type="RichTextLabel" parent="Escena"]
+pause_mode = 2
+margin_left = 68.0
+margin_top = 148.0
+margin_right = 332.0
+margin_bottom = 192.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="Efecto" type="Tween" parent="Escena"]
+pause_mode = 2
+
+[node name="Siguiente" type="TouchScreenButton" parent="Escena"]
+modulate = Color( 0.239216, 0.0627451, 0.384314, 1 )
+position = Vector2( 357, 176 )
+rotation = 1.56667
+normal = ExtResource( 3 )
+action = "seguir"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Escena/Siguiente"]
+anims/RESET = SubResource( 8 )
+anims/fin = SubResource( 9 )
+
+[node name="BGM" type="Node" parent="Escena"]
+
+[node name="1" type="AudioStreamPlayer" parent="Escena/BGM"]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="tween_completed" from="Escena/Efecto" to="Escena" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Escena/Siguiente" to="Escena" method="_on_Siguiente_pressed"]

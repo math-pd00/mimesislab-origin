@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Game/Sounds/BGM/Final/Ludum Dare 28 - Track 2.wav" type="AudioStream" id=1]
+[ext_resource path="res://Game/Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/Assets/Fonts/expression-pro-v1.1/ExpressionPro.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Game/Scripts/Scenes/Historia/Final02.gd" type="Script" id=4]
+[ext_resource path="res://Game/Sounds/SFX/MenuPrincipal/Confirm 1.wav" type="AudioStream" id=5]
+[ext_resource path="res://Game/Sounds/SFX/MenuPrincipal/Cancel 1.wav" type="AudioStream" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Final02" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Escena" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -170, 11 )
+script = ExtResource( 4 )
+
+[node name="Fondo" type="ColorRect" parent="Escena"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Efecto" type="Tween" parent="Escena"]
+pause_mode = 2
+
+[node name="Texto" type="RichTextLabel" parent="Escena"]
+pause_mode = 2
+margin_left = 7.0
+margin_top = 11.0
+margin_right = 377.0
+margin_bottom = 190.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="Menu" type="VBoxContainer" parent="Escena"]
+margin_left = 139.0
+margin_top = 192.0
+margin_right = 248.0
+margin_bottom = 232.0
+
+[node name="Button01" type="Button" parent="Escena/Menu"]
+pause_mode = 2
+margin_right = 109.0
+margin_bottom = 20.0
+custom_colors/font_color_hover = Color( 0.0509804, 0.984314, 0.984314, 1 )
+custom_fonts/font = SubResource( 2 )
+action_mode = 0
+text = "Return to main"
+flat = true
+
+[node name="SFX" type="Node" parent="Escena" groups=["SFX"]]
+
+[node name="Confirm" type="AudioStreamPlayer" parent="Escena/SFX"]
+stream = ExtResource( 5 )
+
+[node name="Exit" type="AudioStreamPlayer" parent="Escena/SFX"]
+stream = ExtResource( 6 )
+
+[node name="BGM" type="Node" parent="."]
+
+[node name="1" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource( 1 )
+autoplay = true
+
+[connection signal="tween_completed" from="Escena/Efecto" to="Escena" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Escena/Menu/Button01" to="Escena" method="_on_Button01_pressed"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Game/Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game/Scripts/Scenes/Historia/Credito01.gd" type="Script" id=2]
+[ext_resource path="res://Game/Images/Logo/Logo_PUCESD.png" type="Texture" id=3]
+[ext_resource path="res://Game/Sounds/BGM/Final/Ludum Dare 28 - Track 2.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[node name="Credito01" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Escena" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Fondo" type="ColorRect" parent="Escena"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Efecto" type="Tween" parent="Escena"]
+pause_mode = 2
+
+[node name="Texto" type="RichTextLabel" parent="Escena"]
+pause_mode = 2
+margin_left = 18.0
+margin_top = 94.0
+margin_right = 391.0
+margin_bottom = 197.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="LOGO PUCE" type="TextureRect" parent="Escena"]
+margin_left = 321.0
+margin_right = 384.0
+margin_bottom = 73.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="BGM" type="Node" parent="."]
+
+[node name="1" type="AudioStreamPlayer" parent="BGM"]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="tween_completed" from="Escena/Efecto" to="Escena" method="_on_Tween_tween_completed"]

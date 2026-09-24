@@ -1,0 +1,140 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Game/Assets/Fonts/matchup-pro-v1.1/MatchupPro.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 5.png" type="Texture" id=2]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 1.png" type="Texture" id=3]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 2.png" type="Texture" id=4]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 4.png" type="Texture" id=5]
+[ext_resource path="res://Game/Assets/Sprites/Miss/desaparición 3.png" type="Texture" id=6]
+[ext_resource path="res://Game/Images/Menu Pausa/Fondo.png" type="Texture" id=7]
+[ext_resource path="res://Game/Assets/Sprites/Planta_02/PersonajePlanta02-2.png" type="Texture" id=8]
+[ext_resource path="res://Game/Assets/Sprites/Planta_02/PersonajePlanta02.png" type="Texture" id=9]
+[ext_resource path="res://Game/Images/Planta03/medium.jpeg" type="Texture" id=10]
+[ext_resource path="res://Game/Scripts/Characters/Plant03/Plant03.gd" type="Script" id=11]
+
+[sub_resource type="DynamicFont" id=14]
+size = 32
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 40, 64 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 45, 45 )
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 13 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 7.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": false,
+"name": "Miss",
+"speed": 7.0
+} ]
+
+[sub_resource type="CircleShape2D" id=20]
+
+[node name="Plant03" type="Area2D"]
+script = ExtResource( 11 )
+
+[node name="Descripcion03" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_left = -479.0
+margin_top = -93.0
+margin_right = -439.0
+margin_bottom = -53.0
+rect_pivot_offset = Vector2( -645, -218 )
+
+[node name="Menu" type="Control" parent="Descripcion03"]
+margin_left = 292.0
+margin_top = -99.0
+margin_right = 316.0
+margin_bottom = -75.0
+
+[node name="Fondo" type="TextureRect" parent="Descripcion03/Menu"]
+margin_left = 37.0
+margin_top = 27.0
+margin_right = 337.0
+margin_bottom = 191.0
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Fondo2" type="TextureRect" parent="Descripcion03/Menu"]
+margin_left = 238.0
+margin_top = 33.0
+margin_right = 325.0
+margin_bottom = 112.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="Descripcion03/Menu"]
+margin_left = 47.0
+margin_top = 24.0
+margin_right = 243.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 0.298039, 0.94902, 0.0313726, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "Clibadium
+websteri:"
+
+[node name="Label2" type="Label" parent="Descripcion03/Menu"]
+margin_left = 47.0
+margin_top = 81.0
+margin_right = 331.0
+margin_bottom = 177.0
+custom_fonts/font = SubResource( 15 )
+text = "Especie rara restringida a una
+pequeña área en el occidente
+de la provincia de Pichincha. Su primera
+colección fue de 1993 al este de Nanegalito
+y su segunda colección fue de 1996 en cerro
+Negro, aproximadamente 3,5 km al este de
+Nanegalito. "
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( -1, -14 )
+scale = Vector2( 1.0875, 0.929688 )
+frames = SubResource( 19 )
+animation = "Idle"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -1, 5 )
+shape = SubResource( 20 )
+
+[connection signal="body_entered" from="." to="." method="_on_Plant03_body_entered"]

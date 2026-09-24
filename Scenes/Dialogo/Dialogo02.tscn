@@ -1,0 +1,177 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Game/Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game/Sounds/BGM/Dialogo/Retro Ambience 11.wav" type="AudioStream" id=2]
+[ext_resource path="res://Game/Images/Dialogo/Fondo.png" type="Texture" id=3]
+[ext_resource path="res://Game/Assets/Buttons/forward.png" type="Texture" id=4]
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Control
+
+var dialogo = [
+	\"ALTO!! Quién eres tú?!!...\"
+]
+var numero_dialogo = 0
+var velocidad_texto = .06
+var fin = false
+var forgot = false
+
+func _ready():
+	get_tree().paused = false
+	$Texto.percent_visible = 0.5
+	$Siguiente/AnimationPlayer.play(\"fin\")
+	dialogo()
+	
+func _process(delta):
+	$Siguiente.visible = fin
+	if forgot == false:
+		if Input.is_action_just_pressed(\"seguir\"):
+			dialogo()
+			forgot = true
+			get_tree().change_scene(\"res://Game/Scenes/Dialogo/Dialogo03.tscn\")
+func dialogo():
+	if numero_dialogo < dialogo.size():
+		fin = false
+		$Texto.bbcode_text = dialogo[numero_dialogo]
+		$Texto.percent_visible = 0
+		var duracion = velocidad_texto * dialogo[numero_dialogo].length()
+		$Efecto.interpolate_property(
+			$Texto, \"percent_visible\",0,1,duracion,Tween.TRANS_LINEAR,Tween.EASE_IN_OUT
+		)
+		$Efecto.start()
+	else:
+		get_tree().paused = false
+		queue_free()
+		#numero_dialogo += 1
+	if Input.is_action_just_pressed(\"seguir\"):
+		pass
+
+func _on_Tween_tween_completed(object, key):
+	fin = true
+	forgot = false
+
+
+func _on_Siguiente_pressed():
+	dialogo()
+	forgot = true
+	get_tree().change_scene(\"res://Game/Scenes/Dialogo/Dialogo03.tscn\")"
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 337, 135 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 357, 176 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fin"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 340, 167 ), Vector2( 340, 180 ) ]
+}
+
+[node name="Dialogo02" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -163, -78 )
+
+[node name="Escena" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = SubResource( 6 )
+
+[node name="Fondo" type="ColorRect" parent="Escena"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="FondoTexto" type="TextureRect" parent="Escena"]
+pause_mode = 2
+margin_left = 55.0
+margin_top = 142.0
+margin_right = 344.0
+margin_bottom = 199.0
+texture = ExtResource( 3 )
+stretch_mode = 1
+
+[node name="Nombre" type="Label" parent="Escena"]
+margin_left = 62.0
+margin_top = 142.0
+margin_right = 129.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 2 )
+text = "Extrañas Voces"
+
+[node name="Texto" type="RichTextLabel" parent="Escena"]
+pause_mode = 2
+margin_left = 68.0
+margin_top = 155.0
+margin_right = 332.0
+margin_bottom = 192.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+deselect_on_focus_loss_enabled = false
+
+[node name="Efecto" type="Tween" parent="Escena"]
+pause_mode = 2
+
+[node name="Siguiente" type="TouchScreenButton" parent="Escena"]
+modulate = Color( 0.239216, 0.0627451, 0.384314, 1 )
+position = Vector2( 357, 176 )
+rotation = 1.56667
+normal = ExtResource( 4 )
+action = "seguir"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Escena/Siguiente"]
+anims/RESET = SubResource( 7 )
+anims/fin = SubResource( 8 )
+
+[node name="BGM" type="Node" parent="Escena"]
+
+[node name="1" type="AudioStreamPlayer" parent="Escena/BGM"]
+stream = ExtResource( 2 )
+autoplay = true
+
+[connection signal="tween_completed" from="Escena/Efecto" to="Escena" method="_on_Tween_tween_completed"]
+[connection signal="pressed" from="Escena/Siguiente" to="Escena" method="_on_Siguiente_pressed"]

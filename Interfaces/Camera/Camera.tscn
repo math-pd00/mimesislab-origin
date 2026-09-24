@@ -1,0 +1,390 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Game/Scripts/Interfaces/Camera/Camera.gd" type="Script" id=1]
+[ext_resource path="res://Game/Assets/Fonts/matchup-pro-v1.1/MatchupPro.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Game/Assets/Buttons/barsHorizontal.png" type="Texture" id=3]
+[ext_resource path="res://Game/Assets/Buttons/barsVertical.png" type="Texture" id=4]
+[ext_resource path="res://Game/Assets/Buttons/buttonLarge.png" type="Texture" id=5]
+[ext_resource path="res://Game/Assets/Buttons/buttonSmall.png" type="Texture" id=6]
+[ext_resource path="res://Game/Images/Menu Pausa/Fondo.png" type="Texture" id=7]
+[ext_resource path="res://Game/Scripts/Interfaces/Menu Pausa/Menu Pausa.gd" type="Script" id=8]
+[ext_resource path="res://Game/Assets/Fonts/Kenney Mini.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Game/Scripts/Interfaces/Game Over/Game Over.gd" type="Script" id=10]
+[ext_resource path="res://Game/Sounds/SFX/Game Over/382310__myfox14__game-over-arcade.wav" type="AudioStream" id=11]
+[ext_resource path="res://Game/Assets/Sprites/Chest/Coin.png" type="Texture" id=12]
+[ext_resource path="res://Game/Assets/Fonts/expression-pro-v1.1/ExpressionPro.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Game/Assets/Fonts/futile-pro-v1/FutilePro.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Game/Scripts/VFX/Puntos/PuntosUI.gd" type="Script" id=15]
+[ext_resource path="res://Game/Scripts/VFX/Plantas/Plantas.gd" type="Script" id=16]
+[ext_resource path="res://Game/Assets/Sprites/Fruit/05.png" type="Texture" id=17]
+[ext_resource path="res://Game/Assets/Buttons/X.png" type="Texture" id=18]
+[ext_resource path="res://Game/Sounds/SFX/MenuPrincipal/Cancel 1.wav" type="AudioStream" id=19]
+[ext_resource path="res://Game/Sounds/SFX/MenuPrincipal/Confirm 1.wav" type="AudioStream" id=20]
+[ext_resource path="res://Game/Assets/Buttons/ARROWLEFT.png" type="Texture" id=21]
+[ext_resource path="res://Game/Assets/Buttons/ARROWRIGHT.png" type="Texture" id=22]
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0196078, 0.0196078, 0.0196078, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=8]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 13 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -192, -326 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "mover"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -192, -326 ), Vector2( -192, -108 ) ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Idle"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 15 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=11]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="HUB" type="Camera2D"]
+position = Vector2( 96, -48 )
+current = true
+limit_left = -10000001
+limit_smoothed = true
+script = ExtResource( 1 )
+
+[node name="Left" type="TouchScreenButton" parent="."]
+position = Vector2( -180, 51 )
+scale = Vector2( 3.5, 2.4375 )
+normal = ExtResource( 21 )
+action = "left"
+
+[node name="Right" type="TouchScreenButton" parent="."]
+position = Vector2( -127, 51 )
+scale = Vector2( 3.5, 2.4375 )
+normal = ExtResource( 22 )
+action = "right"
+
+[node name="Jump" type="TouchScreenButton" parent="."]
+position = Vector2( 118, 50 )
+scale = Vector2( 2.3125, 2.0625 )
+normal = ExtResource( 18 )
+action = "jump"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Menu Pausa" type="Control" parent="."]
+pause_mode = 2
+margin_left = -479.0
+margin_top = -111.0
+margin_right = -439.0
+margin_bottom = -71.0
+rect_pivot_offset = Vector2( -645, -218 )
+script = ExtResource( 8 )
+
+[node name="Boton Pausa" type="TextureButton" parent="Menu Pausa"]
+pause_mode = 2
+margin_left = 646.0
+margin_top = 7.0
+margin_right = 696.0
+margin_bottom = 57.0
+toggle_mode = true
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+stretch_mode = 2
+
+[node name="Efecto" type="Tween" parent="Menu Pausa"]
+
+[node name="Menu" type="Control" parent="Menu Pausa"]
+margin_left = 2.0
+margin_top = 3.0
+margin_right = 26.0
+margin_bottom = 27.0
+
+[node name="Fondo" type="TextureRect" parent="Menu Pausa/Menu"]
+modulate = Color( 0.145098, 0.0235294, 0.254902, 1 )
+margin_left = 107.0
+margin_top = 27.0
+margin_right = 271.0
+margin_bottom = 191.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="Menu Pausa/Menu"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 81.0
+margin_top = 29.0
+margin_right = 305.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 0.137255, 0.74902, 0.721569, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "GAME PAUSED"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Botones" type="Control" parent="Menu Pausa/Menu"]
+margin_left = 115.0
+margin_top = 135.0
+margin_right = 257.0
+margin_bottom = 179.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Continue" type="TextureButton" parent="Menu Pausa/Menu/Botones"]
+margin_left = 6.0
+margin_top = 19.0
+margin_right = 62.0
+margin_bottom = 39.0
+action_mode = 0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+
+[node name="Label" type="Label" parent="Menu Pausa/Menu/Botones/Continue"]
+margin_top = 2.0
+margin_right = 55.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+align = 1
+valign = 1
+
+[node name="Exit" type="TextureButton" parent="Menu Pausa/Menu/Botones"]
+margin_left = 85.0
+margin_top = 19.0
+margin_right = 141.0
+margin_bottom = 39.0
+action_mode = 0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Menu Pausa/Menu/Botones/Exit"]
+margin_left = 6.0
+margin_top = 2.0
+margin_right = 49.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 1 )
+text = "Exit"
+align = 1
+valign = 1
+
+[node name="Total" type="Label" parent="Menu Pausa/Menu"]
+margin_left = 90.0
+margin_top = 96.0
+margin_right = 184.0
+margin_bottom = 110.0
+custom_fonts/font = SubResource( 8 )
+text = "TOTAL SCORE:"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Game Over" type="Control" parent="." groups=["over"]]
+pause_mode = 2
+visible = false
+margin_left = -192.0
+margin_top = -326.0
+margin_right = -152.0
+margin_bottom = -286.0
+script = ExtResource( 10 )
+
+[node name="ColorRect" type="ColorRect" parent="Game Over"]
+margin_left = -2.0
+margin_right = 385.0
+margin_bottom = 216.0
+color = Color( 0, 0, 0, 0.470588 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Game Over" type="Label" parent="Game Over"]
+margin_left = 105.0
+margin_top = 27.0
+margin_right = 273.0
+margin_bottom = 65.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "GAME OVER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Menu" type="VBoxContainer" parent="Game Over"]
+margin_left = 157.0
+margin_top = 124.0
+margin_right = 217.0
+margin_bottom = 164.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Button01" type="Button" parent="Game Over/Menu"]
+pause_mode = 2
+margin_right = 60.0
+margin_bottom = 20.0
+custom_colors/font_color_hover = Color( 0.0509804, 0.984314, 0.984314, 1 )
+custom_fonts/font = SubResource( 4 )
+action_mode = 0
+text = "Restart"
+flat = true
+
+[node name="gameover" type="AudioStreamPlayer" parent="Game Over"]
+stream = ExtResource( 11 )
+
+[node name="anim" type="AnimationPlayer" parent="Game Over"]
+anims/RESET = SubResource( 5 )
+anims/mover = SubResource( 6 )
+
+[node name="Puntos" type="CanvasLayer" parent="."]
+script = ExtResource( 15 )
+
+[node name="Sprite" type="Sprite" parent="Puntos"]
+position = Vector2( 15, 30 )
+scale = Vector2( 1.625, 1.375 )
+texture = ExtResource( 12 )
+hframes = 6
+frame = 1
+
+[node name="puntos" type="Label" parent="Puntos" groups=["puntos"]]
+margin_left = 33.0
+margin_top = 22.0
+margin_right = 40.0
+margin_bottom = 36.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Puntos"]
+anims/Idle = SubResource( 9 )
+anims/RESET = SubResource( 10 )
+
+[node name="Plantas" type="CanvasLayer" parent="."]
+script = ExtResource( 16 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Plantas"]
+position = Vector2( 15, 11 )
+scale = Vector2( 0.99375, 1 )
+frames = SubResource( 14 )
+animation = "Idle"
+
+[node name="plantas" type="Label" parent="Plantas" groups=["plantas"]]
+margin_left = 33.0
+margin_top = 4.0
+margin_right = 41.0
+margin_bottom = 18.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "0"
+
+[node name="SFX" type="Node" parent="." groups=["SFX"]]
+
+[node name="Confirm" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 20 )
+
+[node name="Exit" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 19 )
+
+[connection signal="pressed" from="Menu Pausa/Boton Pausa" to="Menu Pausa" method="_on_Boton_Pausa_pressed"]
+[connection signal="pressed" from="Menu Pausa/Menu/Botones/Continue" to="Menu Pausa" method="_on_Continue_pressed"]
+[connection signal="pressed" from="Menu Pausa/Menu/Botones/Exit" to="Menu Pausa" method="_on_Exit_pressed"]
+[connection signal="pressed" from="Game Over/Menu/Button01" to="Game Over" method="_on_Button01_pressed"]
+[connection signal="animation_finished" from="Game Over/anim" to="Game Over" method="_on_anim_animation_finished"]
