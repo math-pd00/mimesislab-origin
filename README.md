@@ -44,4 +44,4 @@ Designed and developed entirely by me: gameplay, level design, narrative, UI and
 
 ## Author
 
-Matheo Poma Dávila — [LinkedIn](https://www.linkedin.com/in/[your-profile])
+Matheo Poma Dávila — [LinkedIn] https://www.linkedin.com/in/matheo-poma-d%C3%A1vila-87031628a/
