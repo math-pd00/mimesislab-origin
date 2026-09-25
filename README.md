@@ -6,7 +6,7 @@ Designed and developed entirely by me: gameplay, level design, narrative, UI and
 
 ## Play
 
-- Web build: [itch.io link]
+- Web build: https://math-pd00.itch.io/mimesis
 
 ## Features
 
@@ -21,10 +21,8 @@ Designed and developed entirely by me: gameplay, level design, narrative, UI and
 
 | Action | Key |
 | --- | --- |
-| Move | [fill in] |
-| Jump / double jump | [fill in] |
-| Interact / advance dialogue | [fill in] |
-| Pause | [fill in] |
+| Move | [A,D] |
+| Jump / double jump | [Space] |
 
 ## Screenshots
 
@@ -34,12 +32,12 @@ Designed and developed entirely by me: gameplay, level design, narrative, UI and
 
 ## Built with
 
-- Godot Engine [version]
+- Godot Engine [3.6]
 - GDScript
 
 ## Run locally
 
-1. Install Godot [version].
+1. Install Godot [3.6].
 2. Clone this repository.
 3. Open Godot, choose **Import**, and select the `project.godot` file.
 4. Press **F5** to run the game.

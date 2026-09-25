@@ -143,18 +143,21 @@ limit_smoothed = true
 script = ExtResource( 1 )
 
 [node name="Left" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( -180, 51 )
 scale = Vector2( 3.5, 2.4375 )
 normal = ExtResource( 21 )
 action = "left"
 
 [node name="Right" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( -127, 51 )
 scale = Vector2( 3.5, 2.4375 )
 normal = ExtResource( 22 )
 action = "right"
 
 [node name="Jump" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 118, 50 )
 scale = Vector2( 2.3125, 2.0625 )
 normal = ExtResource( 18 )
